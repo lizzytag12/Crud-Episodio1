@@ -4,7 +4,10 @@ const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+/**
+ * It takes a number, converts it to a string, adds commas to it, and returns the result
+ */
+const toThousand = n => n.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
 	// Root - Show all products
@@ -19,11 +22,14 @@ const controller = {
 	},
 
 	// Detail - Detail from one product
+	/* A function that is being exported to the controller.js file. It is rendering the view detail and
+	sending the product and the method toThousand. */
 	detail: (req, res) => {
-		const producto = products.find(product=> product.id === +req.params.id)
+		const product = products.find(product=> product.id === +req.params.id)
 		return res.render('detail',{
 
-			producto
+			product,
+			toThousand
 		})
 	},
 
