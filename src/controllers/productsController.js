@@ -8,13 +8,23 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
 	// Root - Show all products
+	/* A function that is being exported to the controller.js file. */
+	/* renderizo a la vista productos los productos que tengo y mando el metodo toThousand */
 	index: (req, res) => {
-		// Do the magic
+	 return res.render('products',{
+		 products,
+		 toThousand
+
+	 })
 	},
 
 	// Detail - Detail from one product
 	detail: (req, res) => {
-		// Do the magic
+		const producto = products.find(product=> product.id === +req.params.id)
+		return res.render('detail',{
+
+			producto
+		})
 	},
 
 	// Create - Form to create
