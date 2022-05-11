@@ -33,7 +33,12 @@ const controller = {
 
 		/* Filtering the products that have the name or description that includes the keywords. */
 		let resultado =products.filter(product=>product.name.toLowerCase().includes(keywords.toLowerCase()) || product.description.toLowerCase().includes(keywords.toLowerCase()) )
-		return res.send(resultado)
+		return res.render('results',{
+			resultado,
+			keywords,
+			toThousand
+
+		})
 		
 	},
 };
