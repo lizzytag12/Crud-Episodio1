@@ -5,7 +5,7 @@ const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 /**
- * The function takes a number as an argument and returns a string with a dot as a thousand separator.
+ * The function takes a number as an argument and returns a string with a dot as a thousand separator ( cada tres digitos me pone un punto).
  */
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -22,7 +22,8 @@ const controller = {
 		return res.render('index',{
 
 			productosVisited,
-			productosInSale
+			productosInSale,
+			toThousand /* mando esta funcion a la vista como un dato para utilizarlo en la vista toThousand(price), NO ejecutado.*/
 		})
 	},
 	search: (req, res) => {
