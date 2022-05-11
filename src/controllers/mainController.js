@@ -27,7 +27,14 @@ const controller = {
 		})
 	},
 	search: (req, res) => {
-		// Do the magic
+		/* Destructuring the keywords from the req.query object. */
+		const {keywords}=req.query; 
+		/* si uno recibe info por parte del cliente , la capturo por medio de REQ.QUERY */
+
+		/* Filtering the products that have the name or description that includes the keywords. */
+		let resultado =products.filter(product=>product.name.toLowerCase().includes(keywords.toLowerCase()) || product.description.toLowerCase().includes(keywords.toLowerCase()) )
+		return res.send(resultado)
+		
 	},
 };
 
