@@ -47,7 +47,7 @@ const controller = {
 	/* A function that is being exported to the controller.js file. It is rendering the view detail and
 	sending the product and the method toThousand. */
 	detail: (req, res) => {
-		const product = leerProductos().find(product=> product.id === +req.params.id)
+		let product = leerProductos().find(product=> product.id === +req.params.id)
 		return res.render('detail',{
 
 			product,
@@ -57,7 +57,8 @@ const controller = {
 
 
 
-	// Create - Form to create
+	// Create - Form to create 
+	
 	create: (req, res) => {
 		/* Rendering the view product-create-form. */
 		return res.render ('product-create-form')
@@ -77,10 +78,10 @@ const controller = {
 	    /* Creating a new product with the data that the user is sending. */
 		let nuevoProducto={
 
-			id : products[products.length - 1].id +1,
+			id : products[products.length - 1].id + 1,
 			name : name.trim(),
-			description : description.trim(),
 			price: +price,
+			description : description.trim(),
 			discount : +discount,
 			image : "default-image.png",
 			category
@@ -100,18 +101,65 @@ const controller = {
 		return res.redirect('/products');
 	},
 
+
+
 	// Update - Form to edit
 	edit: (req, res) => {
-		// Do the magic
+
+		let products = leerProductos(); //traigo los productos
+
+		let product = products.find(product => product.id === +req.params.id) // busco el producto que machee con el id que recibe por parametro.
+		
+		return res.render('product-edit-form',{
+
+			product
+
+
+		})
+
+
+		
 	},
 	// Update - Method to update
 	update: (req, res) => {
-		// Do the magic
+
+
+
+		 let products = leerProductos();
+
+		const {name,price,discount,description,category} = req.body; 
+		//desestructuro body.
+
+		// si el id del producto machea con el que recibo por parametro,creo un nuevo obj, traigo todas sus propiedades, y modifico las que necesite.
+	/*  */
+		 const productoModificado = products.map(product => {
+			if(product.id === +req.params.id){
+				let productoModificado = {
+					...product, // traigo todas las propiedades
+					name: name.trim(), //piso las que quiera modificar
+					description: description.trim(),
+					price: +price,
+					discount: +discount,
+					category
+				}
+				return productoModificado // pido que me devuelva el producto modificado
+			}
+			return product 
+		})
+		salvarProductos(productoModificado)  //guardo el producto modificado en el JSON
+		return res.redirect('/products') // Mando al usuario a la vista Productos
+		
 	},
 
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
-		// Do the magic
+
+		let products = leerProductos(); // traigo los ultimos productos
+
+		const productosModificados = products.filter(product => product.id !== +req.params.id) // filtro los productos, y le pido que me devuelva solo los que NO coincidan con el ID que estoy recibiendo por parametro.
+		
+		salvarProductos(productosModificados); //guardo en el JSON los pproductos que me devolvio el filter que no tenian el ID que recibi por parametro
+		return res.redirect('/products') // redirijo al usuario a la vista de productos, en el que ya no aparece el producto eliminado
 	}
 };
 

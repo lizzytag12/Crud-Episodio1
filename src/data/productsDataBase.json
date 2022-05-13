@@ -142,14 +142,5 @@
       "category": "in-sale",
       "description": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
       "image": "img-parlante-sony.jpg"
-   },
-   {
-      "id": 17,
-      "name": "Motorola  g9",
-      "description": "El Moto G9 Play cuenta con una pantalla HD+ de 6.5 pulgadas y por dentro encontramos un procesador Snapdragon 662 junto con 4GB de memoria RAM y 64GB o 128GB de almacenamiento interno expandible. En su parte posterior, una cámara triple de 48 MP + 2 MP + 2 MP se encarga de la fotografía mientras que la cámara frontal de 8 megapixels se encarga de las selfies. La generosa batería de 5000 mAh con soporte para cargado rápido provee la energía al Moto G9 play que completa sus características con un lector de huellas, y Android 10.",
-      "price": 30000,
-      "discount": 5,
-      "image": "default-image.png",
-      "category": "in-sale"
    }
 ]
