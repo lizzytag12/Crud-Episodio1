@@ -128,6 +128,8 @@ const controller = {
 		const {name,price,discount,description,category} = req.body; 
 		//desestructuro body.
 
+		const product = products.find(product=>product.id === +req.params.id) //recupero el id por parametro
+
 		// si el id del producto machea con el que recibo por parametro,creo un nuevo obj, traigo todas sus propiedades, y modifico las que necesite.
 	/*  */
 		 const productoModificado = products.map(product => {
@@ -138,12 +140,26 @@ const controller = {
 					description: description.trim(),
 					price: +price,
 					discount: +discount,
+					image: req.file ? req.file.filename :product.image, // si viene algo por req.file, lo guarda, sino me deja el valor anterior.
 					category
 				}
 				return productoModificado // pido que me devuelva el producto modificado
 			}
 			return product 
 		})
+
+	
+	/* Checking if the file exists and if it is not the default image. If it is not the default image, it
+	is deleting the image. */
+		if(req.file && product.images !== "default-image.png"){
+		
+			if(fs.existsSync('./public/images/products/'+product.image)){
+				
+				fs.unlinkSync('./public/images/products/' + product.image)
+			}
+		}
+
+	
 		salvarProductos(productoModificado)  //guardo el producto modificado en el JSON
 		return res.redirect('/products') // Mando al usuario a la vista Productos
 		
