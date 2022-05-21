@@ -50,7 +50,7 @@
 					<div class="col-12 col-md-6">
 						<div class="row">
 							<div class="col-6">
-								<img src="/images/products/<%= product.image  %>" alt="">
+								<img src="/images/products/<%= product.image  %>" alt="" id="imgPreview"  >
 							</div>
 							<div class="col-6">
 								<label for="image" class="form-label">Editar imagen:</label>
@@ -71,5 +71,17 @@
 	<!-- footer -->
 	<%- include('partials/footer') %>
 	<!-- /footer -->
+	<script>
+		//capturo el elemento de ID image , añado un evento de escucha que al captar que carga  una imagen me ejecuta una funcion. 
+		document.getElementById('image').addEventListener('change',(e) => {
+			let reader = new FileReader();
+		reader.readAsDataURL(e.target.files[0]) // con la propiedad e.target accedo a lo que me devuelve files
+		reader.onload = () =>{
+			document.getElementById('imgPreview').src = reader.result
+		}
+
+		})
+		
+	</script>
 </body>	
 </html>
