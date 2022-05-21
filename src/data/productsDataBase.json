@@ -142,5 +142,14 @@
       "category": "in-sale",
       "description": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
       "image": "img-parlante-sony.jpg"
+   },
+   {
+      "id": 17,
+      "name": "MOTOROLA EDGE 20 LITE - XT2139-1 VERDE",
+      "price": 69000,
+      "description": "Celular. Pantalla 6.67 \" qOLED FHD+. Procesador: Octa Core 2.0 Ghz. Camara: Principal: 108 MP (82) F1.9Ultra. Gran Angular y Macro: 8 MP (118) F2.2. Profundidad: 2 MP (80.1) F2.4. Camara Frontal: 32 MP (74.45) F2.2. Ademas tiene las siguientes funciones: HDR, temporizador, fotos dinamicas, modo manual y automatico, camara instantanea, selfie con gesto, Google Lens, marca de agua, captura de sonrisa, composicion inteligente, optimizacion de escena, formato RAW (modo manual). Almacenamiente: 128 GB. RAM: 6 GB. NFC. Carga turbo. USB C. WiFi. GPS. Navegador: Chrome. Bateria: 5000 mAh. Blueetooth 5.0. Android 11.",
+      "discount": 5,
+      "image": "1653106286938_products_.jpg",
+      "category": "visited"
    }
 ]
