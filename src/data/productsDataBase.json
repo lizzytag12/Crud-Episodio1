@@ -151,5 +151,14 @@
       "discount": 10,
       "image": "1653150580916_products_.jpg",
       "category": "visited"
+   },
+   {
+      "id": 18,
+      "name": "LAVARROPAS WHIRLPOOL WLF91AB 9 BLANCO",
+      "price": 98000,
+      "description": "Lavarropas Automatico. Capapacidad de carga: 9 Kg. 14 programas de lavado. Lavado rapido en 30 minutos. Alarma de fin de ciclo. 1200 RPM. Tambor de acero inoxidable. Sistema de lavado: Europeo. Tipo de carga: Frontal. Controles: Digitales.",
+      "discount": 5,
+      "image": "1653151711359_products_.jpg",
+      "category": "in-sale"
    }
 ]
