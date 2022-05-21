@@ -15,20 +15,24 @@
 		</div>
 		<div class="col-12">
 			<!-- la clave del querystring va a ser '?_method=PUT' ya que html solo soporta Post y Get -->
-			<form action="/products/update/<%= product.id %>?_method=PUT" method="POST">
+			<form action="/products/update/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 				<div class="row product-detail">
+					<!-- Editar nombre -->
 					<div class="col-12 col-md-6">
 						<label for="name" class="form-label">Nombre del producto:</label>
 						<input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input" value="<%= product.name %>">
 					</div>
+					<!-- Editar Precio -->
 					<div class="col-12 col-md-6">
 						<label for="price" class="form-label">Precio del producto:</label>
 						<input type="number" id="price" name="price" placeholder="Ej: 5678" class="form-input" value="<%= product.price %>">
 					</div>
+					<!-- Editar Descuento -->
 					<div class="col-12 col-md-6">
 						<label for="discount" class="form-label">Descuento:</label>
 						<input type="number" id="discount" name="discount" placeholder="Ej: 15" class="form-input" value="<%= product.discount %>">
 					</div>
+				<!-- 	Editar Categoria -->
 					<div class="col-12 col-md-6">
 						<label for="category" class="form-label">Categoría:</label>
 						<select name="category" id="category" class="form-input">
@@ -37,9 +41,15 @@
 							<option value="visited" <%= product.category === "visited" && 'selected'  %>  >Últimos agregados</option>
 						</select>
 					</div>
+				<!-- 	Editar Descripcion -->
 					<div class="col-12">
 						<label for="description" class="form-label">Descripción:</label>
 						<textarea name="description" id="description" class="form-input"><%= product.description %></textarea> 
+					</div>
+					<!-- Editar imagen del producto -->
+					<div class="col-12 col-md-6">
+						<label for="image" class="form-label">Editar imagen:</label>
+						<input type="file" id="image" name="image"  class="form-input" accept="image/*">
 					</div>
 					<div class="col-12">
 						<button type="submit" class="buy-now-button">Guardar producto</button>
