@@ -1,7 +1,23 @@
 // ************ Require's ************
 const express = require('express');
+const multer = require('multer');
+const path = require('path')
 const router = express.Router();
 
+// ************ Config Multer************
+
+const storage= multer.diskStorage({
+    destination : function (req,file,callback){
+        callback(null,'public/images/products') //le indico donde guardar los archivos
+    },
+    filename :function (req,file,callback){
+        callback(null, `${Date.now()}_products_${path.extname(file.originalname)}`)
+    } //le indico el fomato del nombre. 
+})
+
+const upload = multer({
+    storage
+})
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
 
@@ -10,8 +26,8 @@ router.get('/', productsController.index);
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', productsController.create); 
-router.post('/create', productsController.store); 
-
+router.post('/create',upload.single('image'), productsController.store); 
+// implementamos multer como middleware
 
 /*** GET ONE PRODUCT ***/ 
 router.get('/detail/:id', productsController.detail); 
