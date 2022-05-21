@@ -142,5 +142,14 @@
       "category": "in-sale",
       "description": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
       "image": "img-parlante-sony.jpg"
+   },
+   {
+      "id": 17,
+      "name": "CELULAR MOTOROLA MOTO G71 / XT2169-1 VERDE",
+      "price": 69000,
+      "description": "Celular. Pantalla gOLED FH+ de 6.43\". Procesador: Octa core Qualcomm Snapdragon 695. Almacenamiento: 128Gb. RAM: 6 Gb. Camara principal: 50MP (74) F1.8 + Ultra Gran Angular y profundidad: 8MP (118) F2.2 + Macro: 2MP (78) F2.4. Camara Frontal: 16 Mp. Tecnologia 5G. NFC. Radio. USB C. WIFI. Bateria: 5000 mAh. Bluetooth. Sistema Operativo: Andriod 11.GPS. Navegador Chrome.",
+      "discount": 10,
+      "image": "1653150580916_products_.jpg",
+      "category": "visited"
    }
 ]
