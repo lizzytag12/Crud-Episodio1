@@ -68,6 +68,7 @@ const controller = {
 	
 	// Create -  Method to store
 	store: (req, res) => {
+		
 
 	    /* Reading the products from the database. */
 		let products = leerProductos()
@@ -83,11 +84,8 @@ const controller = {
 			price: +price,
 			description : description.trim(),
 			discount : +discount,
-			image : "default-image.png",
+			image : req.file ? req.file.filename : "default-image.png", //se subio alguna imagen? dame esa imagen : sino deja la que esta por defecto.
 			category
-
-
-
 		}
      /* Adding the new product to the array of products. */
 		products.push(nuevoProducto)
