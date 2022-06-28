@@ -34,6 +34,7 @@ const controller = {
 
 		let products = leerProductos()
 
+	   /* Rendering the view products and sending the products and the method toThousand. */
 	    return res.render('products',{
 		 products,
 		 toThousand
@@ -48,6 +49,7 @@ const controller = {
 	sending the product and the method toThousand. */
 	detail: (req, res) => {
 		let product = leerProductos().find(product=> product.id === +req.params.id)
+		/* Rendering the view detail and sending the product and the method toThousand. */
 		return res.render('detail',{
 
 			product,
